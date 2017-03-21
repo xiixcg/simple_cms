@@ -1,0 +1,54 @@
+<h1>Hello world from hello! again</h1>
+
+<%= 1 + 1 %>
+
+<% target = "world" %>
+<br/>
+<%= "Hi #{target}" %>
+
+<br/>
+<!-- only outputs result which is 3 unlike ruby -->
+<%= 3.times do |n|
+	#here 'puts' only output to the console
+	puts n
+end
+%>
+
+<br/>
+<!-- outputs 0 1 2 like how previous code work on ruby -->
+<% 3.times do |n| %>
+	<%= n%>
+<% end %>
+
+<br/>
+<!-- example of using instance varaible 'variable within scope of this instance which is demo controller'. this is OOP
+Instance variable is prefixed with @ -->
+<% @array.each do |n| %>
+	<%= n%>
+<% end %>
+
+
+<br/>
+<a href="/demo/index">Index Page 1</a><br/>
+<!-- Rails Links-->
+
+<!--Simple version -->
+<%= link_to('Index Page 2', "/demo/index") %><br/>
+<!--More specifying for understanding
+When controller is same, no need to specify controller-->
+<%= link_to('Index Page 3', {:action => 'index'}) %><br/>
+<!--Specifying controller when it is different-->
+<%= link_to('Index Page 4', {:controller => 'demo', :action => 'index'}) %><br/>
+
+
+<br/>
+<!-- URL Parameters -->
+<%= link_to('Hello Page with parameters', {:action => 'hello', :page => 5, :id => 20}) %><br/>
+
+<br/>
+ID: <%= @id %><br/>
+ID: <%= params[:id] %><br/>
+Page: <%= @page %><br/>
+Page: <%= params[:page] %><br/>
+<!-- Param is always string and we have to type cast to do other things like addition -->
+Next Page: <%= params[:page].to_i + 1 %><br/>
