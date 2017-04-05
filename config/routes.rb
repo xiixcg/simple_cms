@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+
   root 'young_testing#base'
+
+  resources :subjects do
+
+    member do
+      get :delete
+    end
+
+  end
 
   get 'young_testing/base'
 
