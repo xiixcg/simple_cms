@@ -1,5 +1,12 @@
 class SubjectsController < ApplicationController
+
+  layout 'admin'
+
+  before_action :confirm_logged_in
+  before_action :set_subject_count, :only => [:new, :create, :edit, :update]
+
   def index
+    logger.debug("*********** Testing the logger ***********")
     @subjects = Subject.sorted
   end
 
@@ -57,7 +64,14 @@ class SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:subject).permit(:name, :position, :visible, :created_at)
+  end
+
+  def set_subject_count
+  @subject_count = Subject.count
+    if params[:action] == 'new' || params[:action] == 'create'
+      @subject_count += 1
+    end
   end
 
 end

@@ -1,0 +1,30 @@
+<%= error_messages_for(f.object) %>
+
+<table summary="Section form fields">
+	<tr>
+		<th>Name</th>
+		<td><%= f.text_field(:name) %></td>
+	</tr>
+	<tr>
+		<td>Page</td>
+		<td><%= f.object.page.name %></td>
+	</tr>
+	<tr>
+		<td>Position</td>
+		<td><%= f.select(:position, 1..@section_count) %></td>
+	</tr>
+	<tr>
+		<td>Visible</td>
+		<td><%= f.check_box(:visible) %></td>
+	</tr>
+	<tr>
+		<td>Content type</td>
+		<td><%= f.radio_button(:content_type, 'text') %>Text
+			<%= f.radio_button(:content_type, 'HTML') %>HTML	
+		</td>
+	</tr>
+	<tr>
+		<td>Content</td>
+		<td><%= f.text_area(:content, size: '40x10') %></td>
+	</tr>
+</table>

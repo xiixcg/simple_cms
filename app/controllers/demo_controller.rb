@@ -1,6 +1,7 @@
 class DemoController < ApplicationController
 
-	layout false
+	layout 'application'
+  
   def index
   	render('index')
   end
@@ -24,6 +25,10 @@ class DemoController < ApplicationController
 #redirect to different website
   def lynda
   	redirect_to('http://lynda.com')
+  end
+
+  def escape_output
+    
   end
 
 end

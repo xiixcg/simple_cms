@@ -1,0 +1,7 @@
+<% evil_string = "<script>alert('Gotcha!');</script>" %>
+<% good_string = "<strong>Welcome to my site!</strong>" %>
+
+<!-- use raw before to make the script run with out escape -->
+<!-- use with causing because it is how hacker can insert their script -->
+<%= raw evil_string %><br>
+<%= good_string %><br>
